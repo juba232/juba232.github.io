@@ -1,118 +1,105 @@
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
 
-    // ===== THEME TOGGLE FUNCTIONALITY =====
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
-    const body = document.body;
+// Check for saved theme or prefer-color-scheme
+const savedTheme = localStorage.getItem('theme') || 
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+document.documentElement.setAttribute('data-theme', savedTheme);
+updateThemeIcon(savedTheme);
 
-    // Function to update theme icon
-    function updateThemeIcon(theme) {
-        if (theme === 'dark') {
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-        }
-    }
-
-    // Initialize theme from localStorage or system preference
-    function initializeTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (savedTheme) {
-            body.classList.add(savedTheme + '-theme');
-            updateThemeIcon(savedTheme);
-        } else if (systemPrefersDark) {
-            body.classList.add('dark-theme');
-            localStorage.setItem('theme', 'dark');
-            updateThemeIcon('dark');
-        } else {
-            body.classList.add('light-theme');
-            localStorage.setItem('theme', 'light');
-            updateThemeIcon('light');
-        }
-    }
-
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', () => {
-        if (body.classList.contains('light-theme')) {
-            body.classList.replace('light-theme', 'dark-theme');
-            localStorage.setItem('theme', 'dark');
-            updateThemeIcon('dark');
-        } else {
-            body.classList.replace('dark-theme', 'light-theme');
-            localStorage.setItem('theme', 'light');
-            updateThemeIcon('light');
-        }
-    });
-
-    // Initialize theme on page load
-    initializeTheme();
-
-    // ===== BOTTOM NAV ACTIVE STATE =====
-    const navItems = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('section');
-
-    function setActiveNavItem() {
-        let currentSection = '';
-        const scrollPos = window.scrollY + 100;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            const href = item.getAttribute('href');
-            if (href === `#${currentSection}` || (currentSection === 'home' && href === '#home')) {
-                item.classList.add('active');
-            }
-        });
-    }
-
-    // Set active nav item on scroll
-    window.addEventListener('scroll', setActiveNavItem);
-
-    // Replace the smooth scrolling section in script.js with this:
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#' || href === '#home') return;
-        
-        e.preventDefault();
-        const targetId = href;
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            const navHeight = document.getElementById('bottom-nav').offsetHeight;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
 });
-    // Helper function to get element offset
-    Element.prototype.getOffsetTop = function() {
-        let offsetTop = 0;
-        let element = this;
-        
-        while(element) {
-            offsetTop += element.offsetTop;
-            element = element.offsetParent;
-        }
-        
-        return offsetTop;
-    };
 
-    // Initialize active nav item on page load
-    setActiveNavItem();
+function updateThemeIcon(theme) {
+    themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+}
+
+// Bottom Navigation Active State
+const navItems = document.querySelectorAll('.nav-item');
+const sections = document.querySelectorAll('section');
+
+// Function to update active nav item
+function updateActiveNav() {
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('data-target') === currentSection) {
+            item.classList.add('active');
+        }
+    });
+}
+
+// Scroll event listener
+window.addEventListener('scroll', updateActiveNav);
+
+// Nav item click handlers
+navItems.forEach(item => {
+    if (item.getAttribute('data-target')) {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = item.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+});
+
+// Nav bar background on scroll
+const bottomNav = document.getElementById('bottom-nav');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        bottomNav.style.backgroundColor = 'var(--nav-bg)';
+        bottomNav.style.backdropFilter = 'blur(20px) saturate(180%)';
+    } else {
+        bottomNav.style.backgroundColor = 'var(--glass-effect)';
+        bottomNav.style.backdropFilter = 'blur(20px) saturate(180%)';
+    }
+});
+
+// Add fade-in animation on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe project cards for animation
+document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
 });
