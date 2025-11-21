@@ -1,212 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name | Bioinformatics</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-theme">
-    <!-- Modern Bottom Navigation Bar -->
-    <nav id="bottom-nav" class="bottom-nav">
-        <div class="nav-container">
-            <a href="#home" class="nav-item" title="Home">
-                <i class="fas fa-home"></i>
-                <span class="nav-text">Home</span>
-            </a>
-            <a href="#projects" class="nav-item" title="Projects">
-                <i class="fas fa-code-branch"></i>
-                <span class="nav-text">Projects</span>
-            </a>
-            <a href="path/to/your-cv.pdf" class="nav-item" target="_blank" title="CV">
-                <i class="fas fa-file-alt"></i>
-                <span class="nav-text">CV</span>
-            </a>
-            <a href="https://www.linkedin.com/in/yourprofile/" class="nav-item" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-                <span class="nav-text">LinkedIn</span>
-            </a>
-            <a href="https://github.com/yourusername" class="nav-item" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-                <span class="nav-text">GitHub</span>
-            </a>
-        </div>
-    </nav>
-
-    <!-- Theme Toggle Button - Fixed Position -->
-    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme" title="Toggle theme">
+<body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
         <i class="fas fa-moon"></i>
     </button>
 
-    <!-- Block 1: Hero / About Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-container">
-            <div class="profile-media">
-                <img src="assets/your-profile-picture.jpg" alt="Your Name" class="profile-img">
-            </div>
-            <div class="about-text">
-                <h1>Your Name</h1>
-                <h2>Bioinformatician | Computational Biologist</h2>
-                <p>
-                    PhD-trained bioinformatician with 5+ years experience in multi-omics data analysis, machine learning, and pipeline development. Published 8+ papers in peer-reviewed journals including Nature Communications and Bioinformatics.
-                </p>
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <span class="stat-number">8+</span>
-                        <span class="stat-label">Publications</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-media">
+                    <img src="assets/profile.jpg" alt="Your Name" class="profile-img">
+                    <!-- Optional: Video background or embed -->
                 </div>
-                <div class="hero-buttons">
-                    <a href="path/to/your-cv.pdf" class="cta-button primary" target="_blank">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
-                    <a href="#projects" class="cta-button secondary">
-                        <i class="fas fa-arrow-down"></i> View Projects
-                    </a>
+                <div class="about">
+                    <h1>Your Name</h1>
+                    <h2>Bioinformatician & Computational Biologist</h2>
+                    <p>PhD-level researcher specializing in cancer genomics, machine learning, and high-throughput data analysis. Passionate about translating complex biological data into actionable insights.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">NGS Analysis</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Single-Cell Genomics</span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="cv.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Block 2: Industry-Valued Projects Section -->
-    <section id="projects" class="projects-section">
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
         <div class="container">
-            <h2>Industry-Valued Projects</h2>
-            <p class="section-subtitle">Hands-on bioinformatics projects demonstrating real-world applications</p>
-            
+            <h2 class="section-title">Selected Projects</h2>
             <div class="projects-grid">
-
                 <!-- Project 1 -->
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3>Clinical Variant Annotation Pipeline</h3>
-                        <span class="project-difficulty intermediate">Intermediate</span>
-                    </div>
                     <div class="project-content">
-                        <p>Built an automated pipeline for annotating clinical genetic variants with pathogenicity predictions, population frequencies, and clinical significance from multiple databases.</p>
-                        <ul class="tech-tags">
-                            <li>Python</li>
-                            <li>Snakemake</li>
-                            <li>ANNOVAR</li>
-                            <li>VCF files</li>
-                            <li>Docker</li>
-                        </ul>
-                        <div class="project-guideline">
-                            <strong>How to build:</strong> Start with VCF files, integrate ANNOVAR for basic annotation, add custom scripts for CADD, REVEL scores, and create a consensus pathogenicity classifier.
+                        <h3>Cancer Subtype Classification</h3>
+                        <p>Developed a neural network model to classify cancer subtypes using TCGA RNA-Seq data, achieving 94% accuracy and identifying novel biomarkers.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>Scikit-learn</span>
                         </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/variant-pipeline" target="_blank">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                        <a href="#" target="_blank">
-                            <i class="fas fa-book"></i> Documentation
-                        </a>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3>Drug Response Prediction Model</h3>
-                        <span class="project-difficulty advanced">Advanced</span>
-                    </div>
                     <div class="project-content">
-                        <p>Developed a gradient boosting model predicting cancer drug response using GDSC/CTRP data, integrating genomic features with chemical properties achieving 0.85 AUC.</p>
-                        <ul class="tech-tags">
-                            <li>Python</li>
-                            <li>XGBoost</li>
-                            <li>Scikit-learn</li>
-                            <li>Pandas</li>
-                            <li>SHAP</li>
-                        </ul>
-                        <div class="project-guideline">
-                            <strong>How to build:</strong> Download GDSC drug response data, preprocess genomic features (mutations, expression), train ML models, and use SHAP for interpretability.
+                        <h3>Single-Cell Analysis Pipeline</h3>
+                        <p>Built an automated pipeline for single-cell RNA sequencing analysis using Seurat and Scanpy, enabling rapid cell type identification and differential expression.</p>
+                        <div class="tech-stack">
+                            <span>R</span>
+                            <span>Python</span>
+                            <span>Docker</span>
                         </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/drug-response-ml" target="_blank">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                        <a href="#" target="_blank">
-                            <i class="fas fa-chart-line"></i> Live Demo
-                        </a>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Single-Cell RNA-Seq Dashboard</h3>
-                        <span class="project-difficulty intermediate">Intermediate</span>
-                    </div>
-                    <div class="project-content">
-                        <p>Created an interactive Shiny/R dashboard for exploring single-cell sequencing data with UMAP visualization, differential expression, and cell type annotation capabilities.</p>
-                        <ul class="tech-tags">
-                            <li>R/Shiny</li>
-                            <li>Seurat</li>
-                            <li>Plotly</li>
-                            <li>SingleCellExperiment</li>
-                            <li>Docker</li>
-                        </ul>
-                        <div class="project-guideline">
-                            <strong>How to build:</strong> Process scRNA-seq data with Seurat, create Shiny UI with UMAP plots, gene expression violins, and differential expression tables.
-                        </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/scrnaseq-dashboard" target="_blank">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                        <a href="#" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Live App
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>NGS QC & Reporting Automation</h3>
-                        <span class="project-difficulty beginner">Beginner</span>
-                    </div>
-                    <div class="project-content">
-                        <p>Automated Next-Generation Sequencing quality control with MultiQC, FastQC integration and custom reporting, reducing manual QC time by 90% for 100+ samples weekly.</p>
-                        <ul class="tech-tags">
-                            <li>Bash</li>
-                            <li>Python</li>
-                            <li>MultiQC</li>
-                            <li>FastQC</li>
-                            <li>HTML/CSS</li>
-                        </ul>
-                        <div class="project-guideline">
-                            <strong>How to build:</strong> Write bash scripts to run FastQC on multiple files, use MultiQC to aggregate results, and create custom HTML reports with quality thresholds.
-                        </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/ngs-qc-automation" target="_blank">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                        <a href="#" target="_blank">
-                            <i class="fas fa-file-pdf"></i> Report Sample
-                        </a>
-                    </div>
-                </div>
-
+                <!-- Add more projects as needed -->
             </div>
         </div>
     </section>
+
+    <!-- Fixed Bottom Navigation -->
+    <nav class="bottom-nav" id="bottom-nav">
+        <a href="#home" class="nav-item active" data-target="home">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#projects" class="nav-item" data-target="projects">
+            <i class="fas fa-code"></i>
+            <span>Projects</span>
+        </a>
+        <a href="cv.pdf" class="nav-item" target="_blank">
+            <i class="fas fa-file-alt"></i>
+            <span>CV</span>
+        </a>
+        <a href="https://linkedin.com/in/yourprofile" class="nav-item" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/yourusername" class="nav-item" target="_blank">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+        </a>
+    </nav>
 
     <script src="script.js"></script>
 </body>
