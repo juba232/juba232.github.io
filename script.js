@@ -79,26 +79,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set active nav item on scroll
     window.addEventListener('scroll', setActiveNavItem);
 
-    // ===== SMOOTH SCROLLING =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+    // Replace the smooth scrolling section in script.js with this:
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '#home') return;
+        
+        e.preventDefault();
+        const targetId = href;
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            const navHeight = document.getElementById('bottom-nav').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const navHeight = document.getElementById('bottom-nav').offsetHeight;
-                const targetPosition = targetElement.getOffsetTop() - navHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
     });
-
+});
     // Helper function to get element offset
     Element.prototype.getOffsetTop = function() {
         let offsetTop = 0;
