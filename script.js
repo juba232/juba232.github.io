@@ -6,11 +6,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeIcon = themeToggle.querySelector('i');
     const body = document.body;
 
-    // Check for saved theme preference or prefer OS color scheme
-    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    if (savedTheme) {
-        body.classList.add(savedTheme + '-theme');
-        updateThemeIcon(savedTheme);
+    // Function to update theme icon
+    function updateThemeIcon(theme) {
+        if (theme === 'dark') {
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+    }
+
+    // Initialize theme from localStorage or system preference
+    function initializeTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+            body.classList.add(savedTheme + '-theme');
+            updateThemeIcon(savedTheme);
+        } else if (systemPrefersDark) {
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark');
+            updateThemeIcon('dark');
+        } else {
+            body.classList.add('light-theme');
+            localStorage.setItem('theme', 'light');
+            updateThemeIcon('light');
+        }
     }
 
     // Toggle theme on button click
@@ -26,26 +47,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    function updateThemeIcon(theme) {
-        if (theme === 'dark') {
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-        }
+    // Initialize theme on page load
+    initializeTheme();
+
+    // ===== BOTTOM NAV ACTIVE STATE =====
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('section');
+
+    function setActiveNavItem() {
+        let currentSection = '';
+        const scrollPos = window.scrollY + 100;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            const href = item.getAttribute('href');
+            if (href === `#${currentSection}` || (currentSection === 'home' && href === '#home')) {
+                item.classList.add('active');
+            }
+        });
     }
 
-    // ===== TRANSPARENT NAV SCROLL EFFECT =====
-    const navbar = document.getElementById('navbar');
+    // Set active nav item on scroll
+    window.addEventListener('scroll', setActiveNavItem);
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // ===== SMOOTH SCROLLING FOR ANCHOR LINKS =====
+    // ===== SMOOTH SCROLLING =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -54,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const navHeight = navbar.offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                const navHeight = document.getElementById('bottom-nav').offsetHeight;
+                const targetPosition = targetElement.getOffsetTop() - navHeight;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -65,4 +99,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Helper function to get element offset
+    Element.prototype.getOffsetTop = function() {
+        let offsetTop = 0;
+        let element = this;
+        
+        while(element) {
+            offsetTop += element.offsetTop;
+            element = element.offsetParent;
+        }
+        
+        return offsetTop;
+    };
+
+    // Initialize active nav item on page load
+    setActiveNavItem();
 });
