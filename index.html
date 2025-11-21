@@ -1,114 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Bioinformatics</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Your Name | Bioinformatics Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-media">
-                    <img src="assets/profile.jpg" alt="Your Name" class="profile-img">
-                    <!-- Optional: Video background or embed -->
-                </div>
-                <div class="about">
-                    <h1>Your Name</h1>
-                    <h2>Bioinformatician & Computational Biologist</h2>
-                    <p>PhD-level researcher specializing in cancer genomics, machine learning, and high-throughput data analysis. Passionate about translating complex biological data into actionable insights.</p>
-                    <div class="skills">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">NGS Analysis</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Single-Cell Genomics</span>
-                    </div>
-                    <div class="cta-buttons">
-                        <a href="#projects" class="btn btn-primary">View Projects</a>
-                        <a href="cv.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Selected Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Cancer Subtype Classification</h3>
-                        <p>Developed a neural network model to classify cancer subtypes using TCGA RNA-Seq data, achieving 94% accuracy and identifying novel biomarkers.</p>
-                        <div class="tech-stack">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>Scikit-learn</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> Code</a>
-                            <a href="#"><i class="fas fa-file-pdf"></i> Paper</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Single-Cell Analysis Pipeline</h3>
-                        <p>Built an automated pipeline for single-cell RNA sequencing analysis using Seurat and Scanpy, enabling rapid cell type identification and differential expression.</p>
-                        <div class="tech-stack">
-                            <span>R</span>
-                            <span>Python</span>
-                            <span>Docker</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Add more projects as needed -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Fixed Bottom Navigation -->
-    <nav class="bottom-nav" id="bottom-nav">
-        <a href="#home" class="nav-item active" data-target="home">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="#projects" class="nav-item" data-target="projects">
-            <i class="fas fa-code"></i>
-            <span>Projects</span>
-        </a>
-        <a href="cv.pdf" class="nav-item" target="_blank">
-            <i class="fas fa-file-alt"></i>
-            <span>CV</span>
-        </a>
-        <a href="https://linkedin.com/in/yourprofile" class="nav-item" target="_blank">
-            <i class="fab fa-linkedin"></i>
-            <span>LinkedIn</span>
-        </a>
-        <a href="https://github.com/yourusername" class="nav-item" target="_blank">
-            <i class="fab fa-github"></i>
-            <span>GitHub</span>
-        </a>
+    <!-- Fixed Navigation Bar at the Bottom -->
+    <nav class="bottom-nav">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="link-to-your-cv.pdf" target="_blank">CV</a> <!-- Link to a hosted PDF of your CV -->
+        <a href="https://www.linkedin.com/in/yourprofile/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
     </nav>
+
+    <!-- Block 1: Hero / About Section -->
+    <section id="home" class="hero-section">
+        <div class="profile-media">
+            <!-- OPTION A: Profile Picture -->
+            <img src="assets/your-profile-picture.jpg" alt="Your Name" class="profile-img">
+            <!-- OPTION B: Embedded Video (e.g., from YouTube as unlisted) -->
+            <!-- <iframe width="100%" height="315" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe> -->
+        </div>
+        <div class="about-text">
+            <h1>Your Name</h1>
+            <h2>Bioinformatician | Data Scientist</h2>
+            <p>
+                Here is your powerful "About Me" statement. As a PhD, you should highlight your specific expertise (e.g., "My research focuses on cancer genomics and machine learning for biomarker discovery."). Mention key technical skills (Python, R, Next-Generation Sequencing analysis, etc.) and your career aspirations. Keep it concise but impactful—around 3-5 sentences. This is your elevator pitch.
+            </p>
+            <p><strong>Skills:</strong> Python, R, Statistical Modeling, NGS Analysis (RNA-Seq, ChIP-Seq), Machine Learning, Data Visualization</p>
+            <!-- Add a prominent button to your CV -->
+            <a href="link-to-your-cv.pdf" class="cta-button" target="_blank">Download Full CV</a>
+        </div>
+    </section>
+
+    <!-- Block 2: Hand-Picked Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2>Hand-Picked Projects</h2>
+        <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h3>Project Title 1</h3>
+                <p>A brief description of the project. What was the biological question? What data did you use? What was your approach and the key outcome? For example: "Developed a random forest classifier to predict patient response to immunotherapy using TCGA transcriptomic data."</p>
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/project1" target="_blank">View Code</a>
+                    <!-- If you have a live app or a detailed report -->
+                    <a href="link-to-live-demo-or-report" target="_blank">View Report / Live App</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h3>Project Title 2</h3>
+                <p>Another compelling project description. Perhaps a tool you built, a pipeline you optimized, or a complex statistical analysis you performed.</p>
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/project2" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <!-- Add more project cards as needed (3-5 is a good number) -->
+
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
