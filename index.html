@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jubayer Hasan</title>
+    <title>Bioinformatics Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -35,10 +35,6 @@
                 <i class="fas fa-project-diagram"></i>
                 <span>Projects</span>
             </a>
-            <a href="#publications" class="nav-link" data-section="publications">
-                <i class="fas fa-file-alt"></i>
-                <span>Publications</span>
-            </a>
             <a href="#contact" class="nav-link" data-section="contact">
                 <i class="fas fa-envelope"></i>
                 <span>Contact</span>
@@ -50,9 +46,9 @@
     <section id="home" class="section hero-section">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title fade-in">Jubayer Hasan </h1>
-                <h2 class="hero-subtitle fade-in">Data Scientist </h2>
-                <p class="hero-tagline fade-in">Bioinformatics | Predictive Modelling | Machine Learning </p>
+                <h1 class="hero-title fade-in">Dr. Alex Chen</h1>
+                <h2 class="hero-subtitle fade-in">Bioinformatics Researcher</h2>
+                <p class="hero-tagline fade-in">Translating complex biological data into meaningful insights through computational innovation</p>
                 <div class="hero-buttons fade-in">
                     <button class="btn btn-primary" id="downloadCV">
                         <i class="fas fa-download"></i>
@@ -72,7 +68,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am a passionate Data Scientist with habdson experience in Machine Learning , computational biology, specializing in genomics, transcriptomics, and machine learning applications in biomedical research.</p>
+                    <p>I am a passionate bioinformatician with 5+ years of experience in computational biology, specializing in genomics, transcriptomics, and machine learning applications in biomedical research.</p>
                     <p>My research focuses on developing novel algorithms and pipelines for analyzing high-throughput sequencing data, with particular expertise in cancer genomics and personalized medicine.</p>
                     <div class="about-stats">
                         <div class="stat">
@@ -80,12 +76,12 @@
                             <span class="stat-label">Research Projects</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">8</span>
-                            <span class="stat-label">Publications</span>
-                        </div>
-                        <div class="stat">
                             <span class="stat-number">5</span>
                             <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Tools Developed</span>
                         </div>
                     </div>
                 </div>
@@ -136,70 +132,259 @@
     <section id="projects" class="section projects-section">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-dna"></i>
+            <div class="projects-container">
+                <!-- Project 1 - Visible -->
+                <div class="project-item">
+                    <div class="project-slideshow">
+                        <div class="slideshow-container">
+                            <div class="slide active">
+                                <img src="https://raw.githubusercontent.com/yourusername/project1/main/images/fig1.png" alt="Project 1 Figure 1" onerror="this.style.display='none'">
+                            </div>
+                            <div class="slide">
+                                <img src="https://raw.githubusercontent.com/yourusername/project1/main/images/fig2.png" alt="Project 1 Figure 2" onerror="this.style.display='none'">
+                            </div>
+                            <button class="slideshow-prev">❮</button>
+                            <button class="slideshow-next">❯</button>
+                        </div>
+                        <div class="slideshow-dots"></div>
                     </div>
-                    <h3>Cancer Variant Detection</h3>
-                    <p>Developed a machine learning pipeline for identifying driver mutations in cancer genomes using whole-exome sequencing data.</p>
-                    <div class="project-tech">
-                        <span>Python</span>
-                        <span>Scikit-learn</span>
-                        <span>GATK</span>
+                    <div class="project-content">
+                        <h3>Cancer Variant Detection Pipeline</h3>
+                        <div class="project-details">
+                            <p>Developed a comprehensive machine learning pipeline for identifying driver mutations in cancer genomes using whole-exome sequencing data from TCGA.</p>
+                            <ul>
+                                <li>Processed and analyzed 500+ whole-exome samples</li>
+                                <li>Achieved 94% accuracy in variant classification</li>
+                                <li>Implemented automated quality control metrics</li>
+                                <li>Integrated with clinical data for survival analysis</li>
+                            </ul>
+                        </div>
+                        <div class="project-tools">
+                            <h4>Tools & Technologies</h4>
+                            <div class="tools-grid">
+                                <div class="tool-item">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-dna"></i>
+                                    <span>GATK</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Scikit-learn</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Matplotlib</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-chart-line"></i>
+
+                <!-- Project 2 - Visible -->
+                <div class="project-item">
+                    <div class="project-slideshow">
+                        <div class="slideshow-container">
+                            <div class="slide active">
+                                <img src="https://raw.githubusercontent.com/yourusername/project2/main/images/fig1.png" alt="Project 2 Figure 1" onerror="this.style.display='none'">
+                            </div>
+                            <div class="slide">
+                                <img src="https://raw.githubusercontent.com/yourusername/project2/main/images/fig2.png" alt="Project 2 Figure 2" onerror="this.style.display='none'">
+                            </div>
+                            <button class="slideshow-prev">❮</button>
+                            <button class="slideshow-next">❯</button>
+                        </div>
+                        <div class="slideshow-dots"></div>
                     </div>
-                    <h3>Single-Cell RNA Analysis</h3>
-                    <p>Created an interactive web application for visualizing and analyzing single-cell transcriptomics data from immune cells.</p>
-                    <div class="project-tech">
-                        <span>R</span>
-                        <span>Shiny</span>
-                        <span>Seurat</span>
+                    <div class="project-content">
+                        <h3>Single-Cell RNA Analysis Platform</h3>
+                        <div class="project-details">
+                            <p>Created an interactive web application for visualizing and analyzing single-cell transcriptomics data from immune cell populations.</p>
+                            <ul>
+                                <li>Processed 50,000+ single-cell transcriptomes</li>
+                                <li>Implemented clustering and trajectory analysis</li>
+                                <li>Developed interactive UMAP visualizations</li>
+                                <li>Enabled real-time differential expression analysis</li>
+                            </ul>
+                        </div>
+                        <div class="project-tools">
+                            <h4>Tools & Technologies</h4>
+                            <div class="tools-grid">
+                                <div class="tool-item">
+                                    <i class="fab fa-r-project"></i>
+                                    <span>R</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Seurat</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-tv"></i>
+                                    <span>Shiny</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>HTML/CSS</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-brain"></i>
+
+                <!-- Project 3 - Visible -->
+                <div class="project-item">
+                    <div class="project-slideshow">
+                        <div class="slideshow-container">
+                            <div class="slide active">
+                                <img src="https://raw.githubusercontent.com/yourusername/project3/main/images/fig1.png" alt="Project 3 Figure 1" onerror="this.style.display='none'">
+                            </div>
+                            <div class="slide">
+                                <img src="https://raw.githubusercontent.com/yourusername/project3/main/images/fig2.png" alt="Project 3 Figure 2" onerror="this.style.display='none'">
+                            </div>
+                            <button class="slideshow-prev">❮</button>
+                            <button class="slideshow-next">❯</button>
+                        </div>
+                        <div class="slideshow-dots"></div>
                     </div>
-                    <h3>Drug Response Prediction</h3>
-                    <p>Built deep learning models to predict patient response to targeted therapies based on multi-omics data integration.</p>
-                    <div class="project-tech">
-                        <span>PyTorch</span>
-                        <span>Pandas</span>
-                        <span>TensorFlow</span>
+                    <div class="project-content">
+                        <h3>Drug Response Prediction Model</h3>
+                        <div class="project-details">
+                            <p>Built deep learning models to predict patient response to targeted therapies based on multi-omics data integration and clinical features.</p>
+                            <ul>
+                                <li>Integrated genomic, transcriptomic, and proteomic data</li>
+                                <li>Achieved 87% prediction accuracy across 15 cancer types</li>
+                                <li>Identified novel biomarker combinations</li>
+                                <li>Validated predictions with in vitro experiments</li>
+                            </ul>
+                        </div>
+                        <div class="project-tools">
+                            <h4>Tools & Technologies</h4>
+                            <div class="tools-grid">
+                                <div class="tool-item">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-brain"></i>
+                                    <span>PyTorch</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-network-wired"></i>
+                                    <span>TensorFlow</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-database"></i>
+                                    <span>Pandas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden Projects -->
+                <div class="hidden-projects" id="hiddenProjects">
+                    <!-- Project 4 - Hidden -->
+                    <div class="project-item">
+                        <div class="project-slideshow">
+                            <div class="slideshow-container">
+                                <div class="slide active">
+                                    <img src="https://raw.githubusercontent.com/yourusername/project4/main/images/fig1.png" alt="Project 4 Figure 1" onerror="this.style.display='none'">
+                                </div>
+                                <button class="slideshow-prev">❮</button>
+                                <button class="slideshow-next">❯</button>
+                            </div>
+                            <div class="slideshow-dots"></div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Metagenomics Analysis Toolkit</h3>
+                            <div class="project-details">
+                                <p>Developed a comprehensive toolkit for metagenomic analysis including species identification, functional annotation, and comparative analysis.</p>
+                                <ul>
+                                    <li>Supported 16S and shotgun metagenomic data</li>
+                                    <li>Integrated with multiple reference databases</li>
+                                    <li>Provided interactive visualization tools</li>
+                                    <li>Reduced analysis time by 60%</li>
+                                </ul>
+                            </div>
+                            <div class="project-tools">
+                                <h4>Tools & Technologies</h4>
+                                <div class="tools-grid">
+                                    <div class="tool-item">
+                                        <i class="fab fa-python"></i>
+                                        <span>Python</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fas fa-bacteria"></i>
+                                        <span>QIIME2</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fas fa-database"></i>
+                                        <span>MySQL</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fas fa-docker"></i>
+                                        <span>Docker</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 - Hidden -->
+                    <div class="project-item">
+                        <div class="project-slideshow">
+                            <div class="slideshow-container">
+                                <div class="slide active">
+                                    <img src="https://raw.githubusercontent.com/yourusername/project5/main/images/fig1.png" alt="Project 5 Figure 1" onerror="this.style.display='none'">
+                                </div>
+                                <button class="slideshow-prev">❮</button>
+                                <button class="slideshow-next">❯</button>
+                            </div>
+                            <div class="slideshow-dots"></div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Clinical Variant Annotation System</h3>
+                            <div class="project-details">
+                                <p>Built an automated system for clinical variant annotation integrating multiple databases and providing evidence-based classification.</p>
+                                <ul>
+                                    <li>Integrated 10+ variant databases</li>
+                                    <li>Automated ACMG classification guidelines</li>
+                                    <li>Provided clinical significance reports</li>
+                                    <li>Supported rare disease diagnosis</li>
+                                </ul>
+                            </div>
+                            <div class="project-tools">
+                                <h4>Tools & Technologies</h4>
+                                <div class="tools-grid">
+                                    <div class="tool-item">
+                                        <i class="fab fa-python"></i>
+                                        <span>Python</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fas fa-database"></i>
+                                        <span>PostgreSQL</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fas fa-code"></i>
+                                        <span>REST API</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fas fa-cloud"></i>
+                                        <span>AWS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="section publications-section">
-        <div class="container">
-            <h2 class="section-title">Publications</h2>
-            <div class="publications-list">
-                <div class="publication-item">
-                    <h3>Deep learning approaches for variant calling in cancer genomes</h3>
-                    <p class="publication-authors">Chen, A., Smith, B., Johnson, C., et al.</p>
-                    <p class="publication-journal">Nature Methods, 2023</p>
-                    <a href="#" class="publication-link">View Paper →</a>
-                </div>
-                <div class="publication-item">
-                    <h3>Integrative analysis of multi-omics data for precision oncology</h3>
-                    <p class="publication-authors">Chen, A., Williams, D., Brown, K.</p>
-                    <p class="publication-journal">Bioinformatics, 2022</p>
-                    <a href="#" class="publication-link">View Paper →</a>
-                </div>
-                <div class="publication-item">
-                    <h3>Novel computational methods for single-cell sequencing data interpretation</h3>
-                    <p class="publication-authors">Johnson, C., Chen, A., Martinez, L.</p>
-                    <p class="publication-journal">Cell Systems, 2021</p>
-                    <a href="#" class="publication-link">View Paper →</a>
-                </div>
+            <div class="projects-toggle">
+                <button class="btn btn-secondary" id="toggleProjects">
+                    <span class="show-text">Show More Projects</span>
+                    <span class="hide-text">Show Less Projects</span>
+                </button>
             </div>
         </div>
     </section>
