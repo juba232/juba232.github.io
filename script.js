@@ -63,31 +63,86 @@ function highlightNavLink() {
 
 window.addEventListener('scroll', highlightNavLink);
 
-// Scroll Animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Projects Toggle Functionality
+const toggleProjects = document.getElementById('toggleProjects');
+const hiddenProjects = document.getElementById('hiddenProjects');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.project-card, .publication-item, .skill-category');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+toggleProjects.addEventListener('click', () => {
+    hiddenProjects.classList.toggle('show');
+    
+    // Update button text
+    const showText = toggleProjects.querySelector('.show-text');
+    const hideText = toggleProjects.querySelector('.hide-text');
+    
+    if (hiddenProjects.classList.contains('show')) {
+        showText.style.display = 'none';
+        hideText.style.display = 'inline';
+    } else {
+        showText.style.display = 'inline';
+        hideText.style.display = 'none';
+    }
 });
+
+// Slideshow Functionality
+function initSlideshows() {
+    const slideshows = document.querySelectorAll('.slideshow-container');
+    
+    slideshows.forEach((slideshow, index) => {
+        const slides = slideshow.querySelectorAll('.slide');
+        const prevBtn = slideshow.querySelector('.slideshow-prev');
+        const nextBtn = slideshow.querySelector('.slideshow-next');
+        const dotsContainer = slideshow.parentElement.querySelector('.slideshow-dots');
+        let currentSlide = 0;
+        
+        // Create dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'dot';
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+        
+        const dots = dotsContainer.querySelectorAll('.dot');
+        
+        function goToSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+        
+        // Auto-advance slides (optional)
+        let slideInterval = setInterval(nextSlide, 5000);
+        
+        // Pause on hover
+        slideshow.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        slideshow.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+        
+        // Button events
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Initialize first slide
+        goToSlide(0);
+    });
+}
 
 // Contact Form Handling
 const contactForm = document.getElementById('contactForm');
@@ -118,4 +173,5 @@ downloadCV.addEventListener('click', () => {
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
     highlightNavLink();
+    initSlideshows();
 });
